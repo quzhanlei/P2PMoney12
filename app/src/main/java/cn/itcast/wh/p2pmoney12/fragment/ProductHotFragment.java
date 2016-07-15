@@ -22,6 +22,8 @@ import cn.itcast.wh.p2pmoney12.util.UIUtils;
 /**
  * Created by Administrator on 2015/12/16.
  */
+
+//流式布局
 public class ProductHotFragment extends Fragment {
 
     @Bind(R.id.flow)
@@ -44,27 +46,43 @@ public class ProductHotFragment extends Fragment {
         random = new Random();
         for (String data : datas) {
             TextView tv = new TextView(getActivity());
+
             ViewGroup.MarginLayoutParams mp = new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
             mp.leftMargin = UIUtils.dp2px(10);
             mp.rightMargin = UIUtils.dp2px(10);
             mp.topMargin = UIUtils.dp2px(10);
             mp.bottomMargin = UIUtils.dp2px(10);
+            //  给tv设置参数
             tv.setLayoutParams(mp);
+            //设置数据
             tv.setText(data);
+
             int r = random.nextInt(210);
             int g = random.nextInt(210);
             int b = random.nextInt(210);
+
+
             tv.setBackground(
                     DrawableUtil.getSelector(DrawableUtil.getDrawable(Color.rgb(r, g, b), UIUtils.dp2px(5)),
                             DrawableUtil.getDrawable(Color.WHITE, UIUtils.dp2px(5))));
+
+
+
+//            给内部搞个padding
             int padding = UIUtils.dp2px(5);
             tv.setPadding(padding, padding, padding, padding);
+
+
+
             tv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     
                 }
             });
+
+
             flow.addView(tv);
         }
     }

@@ -80,6 +80,7 @@ public class MeFragment extends BaseFragment {
     }
 
     private void isLogin() {
+
         SharedPreferences sp = getActivity().getSharedPreferences("user_info", Context.MODE_PRIVATE);
         String uf_acc = sp.getString("UF_ACC", "");
         if (TextUtils.isEmpty(uf_acc)) {
